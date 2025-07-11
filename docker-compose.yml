@@ -1,0 +1,41 @@
+services:
+
+# frontend:
+#   build:
+#     context: ./frontend
+#     dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      APP_URL: ${APP_URL}
+      SURREALDB_URL: ${SURREALDB_URL}
+      # !!! use ->http<- localhost:8000 in surrealist !!!
+      SURREALDB_USER: ${SURREALDB_USER}
+      SURREALDB_PASS: ${SURREALDB_PASS}
+      SURREALDB_NAMESPACE: ${SURREALDB_NAMESPACE}
+      SURREALDB_DATABASE: ${SURREALDB_DATABASE}
+    env_file:
+      - ./.env
+    depends_on:
+      - surrealdb
+    ports:
+      - "8001:8001"
+
+  surrealdb:
+    image: surrealdb/surrealdb:latest
+    container_name: surrealdb
+    ports:
+      - '8000:8000'
+    command:
+      - start
+      - --log=trace
+      - --user=${SURREALDB_USER}
+      - --pass=${SURREALDB_PASS}
+    restart: always
