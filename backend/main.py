@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 from surrealdb import Surreal
 import logging
 
-from db.dbController import router as db_router
+from app.db.dbController import router as db_router
 
 app = FastAPI()
 

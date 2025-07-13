@@ -15,9 +15,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Change to app directory where main.py is located
-WORKDIR /app/app
-
 # Expose port
 EXPOSE 8001
 
