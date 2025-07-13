@@ -12,7 +12,6 @@ router = APIRouter(
     tags=["db"],
 )
 
-
 @router.post("/")
 async def create_entry(
         entry: Entry, 

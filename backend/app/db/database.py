@@ -2,11 +2,6 @@ from fastapi import APIRouter, HTTPException, FastAPI, Depends
 from surrealdb import Surreal, AsyncSurreal
 import os
 
-router = APIRouter(
-    prefix="/db",
-    tags=["db"],
-)
-
 DATABASE_URL = os.getenv("SURREALDB_URL")
 DATABASE_USER = os.getenv("SURREALDB_USER")
 DATABASE_PASS = os.getenv("SURREALDB_PASS")
