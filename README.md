@@ -3,7 +3,35 @@
 
 ## Git Workflow (Complete Setup)
 
-### Initialize and Setup Repository
+### Clone this template and start with new history
+```bash
+# 1. Clone the repository with your custom name
+git clone https://github.com/Readysoon/template.git my-new-project
+
+# 2. Navigate into the new folder
+cd my-new-project
+
+# 3. Remove the existing git history
+rm -rf .git
+
+# 4. Initialize a new git repository
+git init
+
+# 5. Add all files to the new repository
+git add .
+
+# 6. Make your first commit
+git commit -m "Initial commit: Based on https://github.com/Readysoon/template.git"
+
+# 7. Add your new remote repository
+git remote add origin https://github.com/Readysoon/my-new-project.git
+
+# 8. Push to your new repository
+git push -u origin main
+```
+
+
+### Initialize and Setup new Repository
 ```bash
 # Initialize git repository
 git init
@@ -101,6 +129,10 @@ await db.signin({"user": DATABASE_USER, "pass": DATABASE_PASS})
 ->
 await db.signin({"username": DATABASE_USER, "password": DATABASE_PASS})
 ```
+
+## Surrealist
+
+To login to the database connect to the database via HTTP and localhost:8000 and then ONLY select "Root" for authentication and Username = root, Password = root; if you select Namespace or Database for Authentication it wont work!
 
 
 ## Frontend
